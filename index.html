@@ -1,0 +1,1333 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#10100f">
+  <meta name="description" content="SWIPER FVCK — Vibe Coder, JavaScript & Node.js Developer, WhatsApp Bot Developer, Web Scraper, dan Baileys Developer.">
+  <title>Swiper Fvck — Developer Portfolio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+  <style>
+    :root {
+      --bg: #10100f;
+      --cream: #f3eee4;
+      --muted: #a6a39d;
+      --line: rgba(243, 238, 228, .13);
+      --card: #181817;
+      --mono: "DM Mono", monospace;
+      --sans: "Inter", sans-serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 85px;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--cream);
+      font-family: var(--sans);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    ::selection {
+      background: var(--cream);
+      color: var(--bg);
+    }
+
+    .container {
+      width: min(1160px, 90%);
+      margin: auto;
+    }
+
+    .mono {
+      font-family: var(--mono);
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    /* NAVBAR */
+
+    header {
+      height: 76px;
+      display: flex;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(16, 16, 15, .88);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+    }
+
+    .logo {
+      font-size: 21px;
+      font-weight: 800;
+      letter-spacing: -1.5px;
+      white-space: nowrap;
+    }
+
+    .logo span {
+      color: var(--muted);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 12px;
+      color: #c5c2bb;
+      transition: .25s;
+    }
+
+    .nav-links a:hover {
+      color: var(--cream);
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .github-btn {
+      border: 1px solid var(--line);
+      border-radius: 30px;
+      padding: 9px 16px;
+      font-size: 12px;
+      transition: .25s;
+    }
+
+    .github-btn:hover {
+      background: var(--cream);
+      color: var(--bg);
+    }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      color: var(--cream);
+      border: 0;
+      font-size: 22px;
+      cursor: pointer;
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: 550px;
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      align-items: center;
+      gap: 65px;
+      padding-top: 65px;
+      padding-bottom: 70px;
+      position: relative;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 450px;
+      height: 350px;
+      right: 0;
+      top: 70px;
+      background: radial-gradient(ellipse, rgba(243, 238, 228, .07), transparent 70%);
+      pointer-events: none;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--mono);
+      color: var(--muted);
+      font-size: 12px;
+      margin-bottom: 22px;
+    }
+
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--cream);
+      box-shadow: 0 0 12px rgba(243, 238, 228, .5);
+    }
+
+    h1 {
+      font-size: clamp(44px, 6.5vw, 78px);
+      line-height: 1.06;
+      letter-spacing: -5px;
+      font-weight: 800;
+      margin-bottom: 20px;
+    }
+
+    h1 .outline {
+      color: transparent;
+      -webkit-text-stroke: 1px var(--cream);
+    }
+
+    .hero-roles {
+      font-family: var(--mono);
+      font-size: clamp(12px, 1.5vw, 15px);
+      line-height: 2;
+      margin-bottom: 22px;
+      color: #d9d4ca;
+    }
+
+    .hero-roles span {
+      color: #77736c;
+      padding: 0 7px;
+    }
+
+    .hero-desc {
+      color: var(--muted);
+      max-width: 540px;
+      font-size: 14px;
+      line-height: 1.95;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 30px;
+    }
+
+    .btn {
+      padding: 13px 21px;
+      border: 1px solid var(--line);
+      border-radius: 30px;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 12px;
+      font-weight: 600;
+      transition: transform .25s, background .25s, color .25s;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+    }
+
+    .btn-primary {
+      background: var(--cream);
+      color: var(--bg);
+    }
+
+    .btn-primary:hover {
+      background: #fff;
+    }
+
+    .btn-secondary:hover {
+      background: var(--cream);
+      color: var(--bg);
+    }
+
+    /* TERMINAL */
+
+    .terminal-wrap {
+      position: relative;
+      z-index: 1;
+    }
+
+    .terminal {
+      border: 1px solid rgba(243, 238, 228, .2);
+      border-radius: 13px;
+      background: linear-gradient(145deg, #1b1b19, #111110);
+      box-shadow: 0 30px 80px rgba(0, 0, 0, .3);
+      overflow: hidden;
+      transform: rotate(1deg);
+      transition: transform .4s;
+    }
+
+    .terminal:hover {
+      transform: rotate(0);
+    }
+
+    .terminal-top {
+      padding: 13px 16px;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .dots {
+      display: flex;
+      gap: 6px;
+    }
+
+    .dots i {
+      width: 8px;
+      height: 8px;
+      background: var(--cream);
+      border-radius: 50%;
+      opacity: .8;
+    }
+
+    .terminal-title {
+      font-family: var(--mono);
+      color: var(--muted);
+      font-size: 10px;
+    }
+
+    .terminal-body {
+      padding: 23px 20px 27px;
+      font-family: var(--mono);
+      font-size: 12px;
+      line-height: 2;
+      min-height: 265px;
+    }
+
+    .code-muted {
+      color: #77736c;
+    }
+
+    .code-white {
+      color: var(--cream);
+    }
+
+    .code-indent {
+      padding-left: 18px;
+    }
+
+    .cursor {
+      display: inline-block;
+      width: 7px;
+      height: 14px;
+      background: var(--cream);
+      vertical-align: middle;
+      animation: blink 1s steps(2) infinite;
+    }
+
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
+
+    .terminal-note {
+      font-family: var(--mono);
+      text-align: right;
+      color: var(--muted);
+      font-size: 11px;
+      margin-top: 20px;
+    }
+
+    /* MARQUEE */
+
+    .ticker {
+      overflow: hidden;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      padding: 16px 0;
+    }
+
+    .ticker-track {
+      display: flex;
+      width: max-content;
+      animation: ticker 28s linear infinite;
+    }
+
+    .ticker-item {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: #aaa69e;
+      padding: 0 30px;
+      white-space: nowrap;
+    }
+
+    .ticker-item span {
+      color: var(--cream);
+      padding-right: 25px;
+    }
+
+    @keyframes ticker {
+      to { transform: translateX(-50%); }
+    }
+
+    /* SECTION SHARED */
+
+    section {
+      padding: 100px 0;
+    }
+
+    .section-label {
+      font-family: var(--mono);
+      color: var(--muted);
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-size: clamp(29px, 4vw, 43px);
+      line-height: 1.2;
+      letter-spacing: -1.8px;
+      margin-bottom: 16px;
+    }
+
+    .section-desc {
+      max-width: 550px;
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.9;
+    }
+
+    /* SERVICES */
+
+    .services {
+      padding-bottom: 90px;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+      margin-top: 40px;
+    }
+
+    .service-card {
+      padding: 27px;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      transition: .3s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(243, 238, 228, .4);
+    }
+
+    .service-icon {
+      width: 43px;
+      height: 43px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      font-size: 18px;
+      margin-bottom: 23px;
+    }
+
+    .service-card h3 {
+      font-size: 15px;
+      margin-bottom: 11px;
+    }
+
+    .service-card p {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.9;
+    }
+
+    .service-number {
+      display: block;
+      margin-top: 25px;
+      font-family: var(--mono);
+      font-size: 10px;
+      color: #77736c;
+    }
+
+    /* ABOUT */
+
+    .about {
+      background: var(--cream);
+      color: var(--bg);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 90px;
+      align-items: start;
+    }
+
+    .about .section-label,
+    .about .section-desc {
+      color: #6f6b64;
+    }
+
+    .about-copy {
+      font-size: 14px;
+      line-height: 2;
+      color: #494740;
+      margin-top: 22px;
+    }
+
+    .about-facts {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 25px;
+    }
+
+    .fact {
+      padding: 8px 12px;
+      border: 1px solid rgba(16, 16, 15, .15);
+      border-radius: 30px;
+      font-family: var(--mono);
+      font-size: 10px;
+    }
+
+    .about .section-title {
+      color: var(--bg);
+    }
+
+    .skill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-top: 27px;
+    }
+
+    .skill {
+      padding: 9px 14px;
+      border: 1px solid rgba(16, 16, 15, .17);
+      border-radius: 30px;
+      font-size: 11px;
+      transition: .2s;
+    }
+
+    .skill:hover {
+      background: var(--bg);
+      color: var(--cream);
+    }
+
+    .skill i {
+      margin-right: 6px;
+    }
+
+    /* PROJECTS */
+
+    .projects-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 20px;
+      margin-bottom: 35px;
+    }
+
+    .project-count {
+      font-family: var(--mono);
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .project-card {
+      padding: 26px;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      transition: .3s;
+    }
+
+    .project-card:hover {
+      border-color: rgba(243, 238, 228, .4);
+      transform: translateY(-4px);
+    }
+
+    .project-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 30px;
+    }
+
+    .project-icon {
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      font-size: 18px;
+    }
+
+    .project-arrow {
+      color: var(--muted);
+      transition: .2s;
+    }
+
+    .project-card:hover .project-arrow {
+      color: var(--cream);
+      transform: translate(3px, -3px);
+    }
+
+    .project-tag {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .project-card h3 {
+      font-size: 17px;
+      margin-bottom: 10px;
+    }
+
+    .project-card p {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.9;
+      margin-bottom: 20px;
+    }
+
+    .project-tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+    }
+
+    .project-tech span {
+      font-family: var(--mono);
+      font-size: 9px;
+      padding: 5px 8px;
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      color: #c3bfb6;
+    }
+
+    /* STACK */
+
+    .stack {
+      padding-top: 0;
+    }
+
+    .stack-box {
+      border: 1px solid var(--line);
+      border-radius: 13px;
+      padding: 35px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .stack-box h3 {
+      font-size: 22px;
+      letter-spacing: -1px;
+      margin-bottom: 12px;
+    }
+
+    .stack-box p {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.9;
+    }
+
+    .stack-items {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 9px;
+    }
+
+    .stack-item {
+      padding: 13px 8px;
+      text-align: center;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      font-family: var(--mono);
+      font-size: 10px;
+    }
+
+    /* CONTACT */
+
+    .contact {
+      border-top: 1px solid var(--line);
+      text-align: center;
+    }
+
+    .contact .section-desc {
+      margin: 0 auto;
+    }
+
+    .contact .hero-actions {
+      justify-content: center;
+    }
+
+    .contact-email {
+      display: inline-block;
+      margin-top: 28px;
+      font-family: var(--mono);
+      font-size: clamp(13px, 3vw, 20px);
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 7px;
+    }
+
+    .socials {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 35px;
+    }
+
+    .socials a {
+      width: 43px;
+      height: 43px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      color: #c5c2bb;
+      transition: .25s;
+    }
+
+    .socials a:hover {
+      background: var(--cream);
+      color: var(--bg);
+    }
+
+    /* FOOTER */
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 22px 0;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .footer-inner p {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--muted);
+    }
+
+    .back-top {
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    /* SCROLL ANIMATION */
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 850px) {
+      .nav-links {
+        gap: 16px;
+      }
+
+      .hero {
+        gap: 35px;
+      }
+
+      h1 {
+        letter-spacing: -3px;
+      }
+
+      .about-grid {
+        gap: 45px;
+      }
+
+      .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 650px) {
+      header {
+        height: 67px;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 66px;
+        left: 0;
+        right: 0;
+        padding: 20px 5%;
+        background: var(--bg);
+        border-bottom: 1px solid var(--line);
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-links a {
+        display: block;
+        padding: 13px 0;
+      }
+
+      .github-btn {
+        padding: 8px 11px;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        gap: 45px;
+        padding-top: 65px;
+        padding-bottom: 55px;
+        min-height: auto;
+      }
+
+      h1 {
+        font-size: clamp(45px, 12vw, 70px);
+      }
+
+      .hero-roles {
+        font-size: 12px;
+      }
+
+      .terminal-wrap {
+        max-width: 480px;
+      }
+
+      section {
+        padding: 75px 0;
+      }
+
+      .services {
+        padding-bottom: 70px;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+        margin-top: 28px;
+      }
+
+      .service-card {
+        padding: 23px;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 45px;
+      }
+
+      .projects-head {
+        align-items: start;
+        flex-direction: column;
+      }
+
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .stack-box {
+        grid-template-columns: 1fr;
+        padding: 25px;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+
+<body id="home">
+
+  <!-- NAVBAR -->
+  <header>
+    <nav class="container">
+      <a href="#home" class="logo">SF<span>.</span></a>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+      <div class="nav-right">
+        <!-- GANTI LINK GITHUB -->
+        <a class="github-btn" href="https://github.com/SwipFvck" target="_blank" rel="noopener noreferrer">
+          <i class="fa-brands fa-github"></i> GitHub
+        </a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Buka navigasi" aria-expanded="false">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="container hero">
+      <div class="hero-content">
+        <div class="eyebrow">
+          <span class="status-dot"></span>
+          DEVELOPER PORTFOLIO / 2026
+        </div>
+
+        <h1>SWIPER<br><span class="outline">FVCK.</span></h1>
+
+        <div class="hero-roles">
+          Vibe Coder <span>/</span> JavaScript Developer<br>
+          Node.js <span>/</span> WhatsApp Bot Developer<br>
+          Web Scraper <span>/</span> Baileys Developer
+        </div>
+
+        <p class="hero-desc">
+          Membangun Tools, Bot WhatsApp, Scraper, Rest Api, dan berbagai
+          solusi berbasis JavaScript. Dari ide sederhana sampai
+          project yang siap dikembangin jadi sesuatu yang lebih besar.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#projects" class="btn btn-primary">
+            Explore Projects <i class="fa-solid fa-arrow-right"></i>
+          </a>
+          <a href="#contact" class="btn btn-secondary">
+            Let's Connect <i class="fa-regular fa-envelope"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="terminal-wrap">
+        <div class="terminal">
+          <div class="terminal-top">
+            <div class="dots"><i></i><i></i><i></i></div>
+            <span class="terminal-title">~/swiper-fvck/portfolio</span>
+            <i class="fa-solid fa-terminal muted"></i>
+          </div>
+
+          <div class="terminal-body">
+            <div class="code-muted">// about.js</div>
+            <br>
+            <div><span class="code-muted">const</span> developer = {</div>
+            <div class="code-indent">name: <span class="code-white">"SWIPER FVCK"</span>,</div>
+            <div class="code-indent">role: <span class="code-white">"Vibe Coder"</span>,</div>
+            <div class="code-indent">language: <span class="code-white">"JavaScript"</span>,</div>
+            <div class="code-indent">runtime: <span class="code-white">"Node.js"</span>,</div>
+            <div class="code-indent">specialty: [</div>
+            <div class="code-indent">&nbsp;&nbsp;<span class="code-white">"WhatsApp Bot"</span>,</div>
+            <div class="code-indent">&nbsp;&nbsp;<span class="code-white">"Scraping Web"</span>,</div>
+            <div class="code-indent">&nbsp;&nbsp;<span class="code-white">"Baileys"</span></div>
+            <div class="code-indent">]</div>
+            <div>};</div>
+            <br>
+            <div><span class="code-muted">// keep building...</span></div>
+            <div>&gt; <span class="cursor"></span></div>
+          </div>
+        </div>
+        <p class="terminal-note">// good code. better ideas.</p>
+      </div>
+    </section>
+
+    <!-- TECH TICKER -->
+    <div class="ticker" aria-label="Teknologi yang digunakan">
+      <div class="ticker-track" aria-hidden="true">
+        <div class="ticker-item"><span>✳</span> JAVASCRIPT</div>
+        <div class="ticker-item"><span>✳</span> NODE.JS</div>
+        <div class="ticker-item"><span>✳</span> WHATSAPP BOT</div>
+        <div class="ticker-item"><span>✳</span> BAILEYS</div>
+        <div class="ticker-item"><span>✳</span> SCRAPING WEB</div>
+        <div class="ticker-item"><span>✳</span> REST API</div>
+        <div class="ticker-item"><span>✳</span> BACKEND</div>
+        <div class="ticker-item"><span>✳</span> FRONTEND</div>
+        <div class="ticker-item"><span>✳</span> AUTOMATION</div>
+        <div class="ticker-item"><span>✳</span> JAVASCRIPT</div>
+        <div class="ticker-item"><span>✳</span> NODE.JS</div>
+        <div class="ticker-item"><span>✳</span> WHATSAPP BOT</div>
+        <div class="ticker-item"><span>✳</span> BAILEYS</div>
+        <div class="ticker-item"><span>✳</span> SCRAPING WEB</div>
+        <div class="ticker-item"><span>✳</span> REST API</div>
+        <div class="ticker-item"><span>✳</span> BACKEND</div>
+        <div class="ticker-item"><span>✳</span> FRONTEND</div>
+        <div class="ticker-item"><span>✳</span> AUTOMATION</div>
+      </div>
+    </div>
+
+    <!-- SERVICES -->
+    <section class="container services reveal" id="services">
+      <div class="section-label">01 / What I Do</div>
+      <h2 class="section-title">Things I Build<span class="muted">.</span></h2>
+      <p class="section-desc">
+        Fokus bikin solusi yang fungsional, efisien, dan gampang dikembangin.
+      </p>
+
+      <div class="services-grid">
+        <article class="service-card">
+          <div class="service-icon"><i class="fa-brands fa-whatsapp"></i></div>
+          <h3>WhatsApp Bot Development</h3>
+          <p>
+            Bot WhatsApp dengan command handler, sistem plugin,
+            auto-reply, downloader, dan fitur custom sesuai kebutuhan.
+          </p>
+          <span class="service-number">SERVICE_001</span>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon"><i class="fa-solid fa-code"></i></div>
+          <h3>Baileys Development</h3>
+          <p>
+            Eksplorasi Baileys untuk koneksi WhatsApp Web,
+            pairing, message handling, interactive message, dan otomasi.
+          </p>
+          <span class="service-number">SERVICE_002</span>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon"><i class="fa-solid fa-spider"></i></div>
+          <h3>Web Scraping</h3>
+          <p>
+            Ekstraksi data website menggunakan request HTTP,
+            parsing HTML, normalisasi response, dan integrasi API.
+          </p>
+          <span class="service-number">SERVICE_003</span>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon"><i class="fa-brands fa-node-js"></i></div>
+          <h3>JavaScript & Node.js</h3>
+          <p>
+            Pengembangan backend, REST API, Express.js,
+            integrasi layanan eksternal, dan pengolahan data.
+          </p>
+          <span class="service-number">SERVICE_004</span>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon"><i class="fa-solid fa-gears"></i></div>
+          <h3>Automation Tools</h3>
+          <p>
+            Membuat script untuk mengotomatisasi pekerjaan
+            berulang dan menyederhanakan workflow.
+          </p>
+          <span class="service-number">SERVICE_005</span>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon"><i class="fa-solid fa-plug"></i></div>
+          <h3>API Integration</h3>
+          <p>
+            Menghubungkan aplikasi dengan API eksternal,
+            menangani error, dan menyusun response JSON yang konsisten.
+          </p>
+          <span class="service-number">SERVICE_006</span>
+        </article>
+      </div>
+    </section>
+
+    <!-- ABOUT + SKILLS -->
+    <section class="about reveal" id="about">
+      <div class="container about-grid">
+        <div>
+          <div class="section-label">02 / About Me</div>
+          <h2 class="section-title">Coding with<br>my own flow.</h2>
+          <p class="about-copy">
+            Perkenalkan saya SWIPER FVCK lulusan SMK Muhammadiyah Lemahabang
+            Kabupaten Cirebon Jurusan Teknik Sepeda Motor (TSM).
+            Saya seorang vibe coder yang suka
+            ngulik JavaScript, Node.js, pengembangan bot WhatsApp,
+            web scraping, dan berbagai eksperimen teknologi.
+            Saya senang ngerubah ide jadi project nyata,
+            eksplorasi library baru, dan terus belajar lewat proses building.
+          </p>
+
+          <div class="about-facts">
+            <span class="fact"><i class="fa-solid fa-code"></i> Developer</span>
+            <span class="fact"><i class="fa-solid fa-terminal"></i> Vibe Coder</span>
+            <span class="fact"><i class="fa-solid fa-globe"></i> Indonesia</span>
+          </div>
+        </div>
+
+        <div>
+          <div class="section-label">03 / Tech Stack</div>
+          <h2 class="section-title">My toolkit<span style="color:#77736c">.</span></h2>
+          <p class="about-copy">
+            Teknologi yang saya gunakan buat membangun project,
+            API, bot, dan tools.
+          </p>
+
+          <div class="skill-list">
+            <span class="skill"><i class="fa-brands fa-js"></i> JavaScript</span>
+            <span class="skill"><i class="fa-brands fa-node-js"></i> Node.js</span>
+            <span class="skill"><i class="fa-solid fa-plug"></i> Express.js</span>
+            <span class="skill"><i class="fa-brands fa-whatsapp"></i> Baileys</span>
+            <span class="skill"><i class="fa-solid fa-spider"></i> Cheerio</span>
+            <span class="skill"><i class="fa-solid fa-cloud"></i> REST API</span>
+            <span class="skill"><i class="fa-brands fa-html5"></i> HTML</span>
+            <span class="skill"><i class="fa-brands fa-css3-alt"></i> CSS</span>
+            <span class="skill"><i class="fa-brands fa-git-alt"></i> Git</span>
+            <span class="skill"><i class="fa-brands fa-backend-alt"></i> Backend</span>
+            <span class="skill"><i class="fa-brands fa-frontend-alt"></i> Frontend</span>
+            <span class="skill"><i class="fa-solid fa-gears"></i> Automation</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="container reveal" id="projects">
+      <div class="projects-head">
+        <div>
+          <div class="section-label">04 / Selected Work</div>
+          <h2 class="section-title">Featured Projects<span class="muted">.</span></h2>
+          <p class="section-desc">
+            Beberapa kategori project yang saya kembangin dan eksplorasi.
+          </p>
+        </div>
+        <span class="project-count">MY WORK / 2026</span>
+      </div>
+
+      <div class="projects-grid">
+        <article class="project-card">
+          <div class="project-top">
+            <div class="project-icon"><i class="fa-brands fa-whatsapp"></i></div>
+            <a href="https://github.com/SwipFvck/Fvckerss-Whatsapp" target="_blank" rel="noopener noreferrer" class="project-arrow" aria-label="Lihat project di GitHub">
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+          </div>
+          <div class="project-tag">BOT DEVELOPMENT</div>
+          <h3>WhatsApp Bot</h3>
+          <p>
+            Bot WhatsApp modular dengan command handler,
+            sistem plugin, auto-reply, dan fitur custom.
+          </p>
+          <div class="project-tech">
+            <span>Node.js</span><span>Baileys</span><span>JavaScript</span>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-top">
+            <div class="project-icon"><i class="fa-solid fa-spider"></i></div>
+            <a href="https://fvcodex.my.id" target="_blank" rel="noopener noreferrer" class="project-arrow" aria-label="Lihat project di Website">
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+          </div>
+          <div class="project-tag">DATA EXTRACTION</div>
+          <h3>Web Scraper</h3>
+          <p>
+            Tools untuk mengambil dan mengolah data website
+            lalu menyajikannya dalam format JSON.
+          </p>
+          <div class="project-tech">
+            <span>Axios</span><span>Cheerio</span><span>Node.js</span>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-top">
+            <div class="project-icon"><i class="fa-solid fa-cloud"></i></div>
+            <a href="https://api.fvckers.web.id" target="_blank" rel="noopener noreferrer" class="project-arrow" aria-label="Lihat project di Website">
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+          </div>
+          <div class="project-tag">BACKEND DEVELOPMENT</div>
+          <h3>REST API Tools</h3>
+          <p>
+            Backend API dengan routing terstruktur,
+            integrasi layanan eksternal, dan error handling.
+          </p>
+          <div class="project-tech">
+            <span>Express.js</span><span>REST API</span><span>JSON</span>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-top">
+            <div class="project-icon"><i class="fa-solid fa-gears"></i></div>
+            <a href="https://github.com/SwipFvck" target="_blank" rel="noopener noreferrer" class="project-arrow" aria-label="Lihat project di GitHub">
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+          </div>
+          <div class="project-tag">AUTOMATION</div>
+          <h3>Developer Utilities</h3>
+          <p>
+            Kumpulan script dan tools untuk menyederhanakan
+            workflow development sehari-hari.
+          </p>
+          <div class="project-tech">
+            <span>JavaScript</span><span>Node.js</span><span>CLI</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- STACK BANNER -->
+    <section class="container stack reveal">
+      <div class="stack-box">
+        <div>
+          <div class="section-label">05 / Current Focus</div>
+          <h3>Build. Break. Learn. Repeat.</h3>
+          <p>
+            Terus eksplorasi teknologi, ngembangin tools baru,
+            dan ningkatin kualitas setiap project lewat eksperimen.
+          </p>
+        </div>
+        <div class="stack-items">
+          <div class="stack-item">JavaScript</div>
+          <div class="stack-item">Node.js</div>
+          <div class="stack-item">Baileys</div>
+          <div class="stack-item">Scraping</div>
+          <div class="stack-item">REST API</div>
+          <div class="stack-item">BACKEND</div>
+          <div class="stack-item">FRONTEND</div>
+          <div class="stack-item">Automation</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact reveal" id="contact">
+      <div class="container">
+        <div class="section-label">06 / Get In Touch</div>
+        <h2 class="section-title">Got an idea?<br>Let's build it<span class="muted">.</span></h2>
+        <p class="section-desc">
+          Punya project, ide menarik, atau mau kolaborasi?
+          Hubungi saya lewat platform di bawah ini.
+        </p>
+
+        <div class="hero-actions">
+          <a href="swiperfvck@gmail.com" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+            <i class="fa-brands fa-github"></i> Gmail
+          </a>
+          <a href="https://wa.me/6285147486083" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+            <i class="fa-brands fa-whatsapp"></i> Chat WhatsApp
+          </a>
+        </div>
+
+        <div class="socials">
+          <a href="https://github.com/SwipFvck" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+            <i class="fa-brands fa-github"></i>
+          </a>
+          <a href="https://instagram.com/swiperrrr__" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+          <a href="https://t.me/swiperfvck" target="_blank" rel="noopener noreferrer" aria-label="Telegram">
+            <i class="fa-brands fa-telegram"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container footer-inner">
+      <a href="#home" class="logo">SF<span>.</span></a>
+      <p>© <span id="year"></span> SWIPER FVCK. Crafted with code.</p>
+      <a href="#home" class="back-top">BACK TO TOP ↑</a>
+    </div>
+  </footer>
+
+  <script>
+    // MOBILE NAVIGATION
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+
+    menuToggle.addEventListener("click", () => {
+      const isOpen = navLinks.classList.toggle("open");
+
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+      menuToggle.innerHTML = isOpen
+        ? '<i class="fa-solid fa-xmark"></i>'
+        : '<i class="fa-solid fa-bars"></i>';
+    });
+
+    document.querySelectorAll("#navLinks a").forEach(link => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
+      });
+    });
+
+    // SCROLL REVEAL
+    const revealElements = document.querySelectorAll(".reveal");
+
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            obs.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.08
+      });
+
+      revealElements.forEach(element => observer.observe(element));
+    } else {
+      revealElements.forEach(element => element.classList.add("visible"));
+    }
+
+    // CURRENT YEAR
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
